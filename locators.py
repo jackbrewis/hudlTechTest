@@ -6,3 +6,4 @@ class MainPageLocators(object):
 class LoginPageLocators(object):
     EMAIL_FIELD = "username"
     PASSWORD_FIELD = "password"
+    LOGIN_BUTTON = (By.CLASS_NAME, "btn-orange.btn-block")

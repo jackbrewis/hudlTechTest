@@ -26,8 +26,10 @@ class LoginTest(unittest.TestCase):
         login_page = page.LoginPage(self.driver)
         assert login_page.does_title_match("Log In - Hudl"), "Title does not match"
 
-        login_page.enter_email = "test@test.com"
-        login_page.enter_password = "hjdsflhkjsadfhlkj"
+        login_page.enter_email = "redacted"
+        login_page.enter_password = "redacted"
+        login_page.click_login_button()
+
         time.sleep(5)
 
     def tearDown(self):
