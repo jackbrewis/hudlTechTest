@@ -7,6 +7,7 @@ class LoginPageLocators(object):
     EMAIL_FIELD = "username"
     PASSWORD_FIELD = "password"
     LOGIN_BUTTON = (By.CLASS_NAME, "btn-orange.btn-block")
+    LOGIN_ERROR_TEXT = (By.XPATH, "//div[@class='login-error-container']//p")
 
 class HomePageLocators(object):
     USER_DROPDOWN = (By.CLASS_NAME, "hui-globalusermenu")

@@ -29,15 +29,9 @@ class LoginPage(BasePage):
         login = self.driver.find_element(*LoginPageLocators.LOGIN_BUTTON)
         login.click()
 
+    def error_displayed(self):
+        error_message = self.driver.find_element(*LoginPageLocators.LOGIN_ERROR_TEXT).text
+        return "We didn't recognize that email and/or password. Need help?" in error_message
+        
     enter_email = email_field()
     enter_password = password_field()
-
-class HomePage(BasePage):
-    def does_email_match(self, email):
-        user_dropdown = self.driver.find_element(*HomePageLocators.USER_DROPDOWN)
-        hover = ActionChains(self.driver).move_to_element(user_dropdown)
-
-        sleep(10)
-        element = self.driver.find_element(*HomePageLocators.EMAIL_TEXT)
-        print(element.text)
-        return email in element.text
