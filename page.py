@@ -1,5 +1,7 @@
+from time import sleep
 from element import BasePageElement
-from locators import LoginPageLocators, MainPageLocators
+from locators import LoginPageLocators, MainPageLocators, HomePageLocators
+from selenium.webdriver.common.action_chains import ActionChains
 # The page file currently contains all the information for the various pages that are accessed during the test
 # In a real world test suite this would not be sustainable so would likely separate it out for each page.
 
@@ -24,8 +26,18 @@ class LoginPage(BasePage):
         locator = LoginPageLocators.PASSWORD_FIELD
 
     def click_login_button(self):
-        element = self.driver.find_element(*LoginPageLocators.LOGIN_BUTTON)
-        element.click()
+        login = self.driver.find_element(*LoginPageLocators.LOGIN_BUTTON)
+        login.click()
 
     enter_email = email_field()
     enter_password = password_field()
+
+class HomePage(BasePage):
+    def does_email_match(self, email):
+        user_dropdown = self.driver.find_element(*HomePageLocators.USER_DROPDOWN)
+        hover = ActionChains(self.driver).move_to_element(user_dropdown)
+
+        sleep(10)
+        element = self.driver.find_element(*HomePageLocators.EMAIL_TEXT)
+        print(element.text)
+        return email in element.text

@@ -7,3 +7,7 @@ class LoginPageLocators(object):
     EMAIL_FIELD = "username"
     PASSWORD_FIELD = "password"
     LOGIN_BUTTON = (By.CLASS_NAME, "btn-orange.btn-block")
+
+class HomePageLocators(object):
+    USER_DROPDOWN = (By.CLASS_NAME, "hui-globalusermenu")
+    EMAIL_TEXT = (By.CLASS_NAME, "hui-globaluseritem__email")
