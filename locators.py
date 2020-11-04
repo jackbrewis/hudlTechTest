@@ -12,3 +12,4 @@ class LoginPageLocators(object):
 class HomePageLocators(object):
     USER_DROPDOWN = (By.CLASS_NAME, "hui-globalusermenu")
     EMAIL_TEXT = (By.CLASS_NAME, "hui-globaluseritem__email")
+    TEAM_NAME = (By.XPATH, "//div[@class='hui-primaryteamswitcher__display-name']//span")

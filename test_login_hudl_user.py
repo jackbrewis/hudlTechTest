@@ -1,13 +1,8 @@
 from time import sleep
 import unittest
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support import wait
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import page
-import time
 
 class LoginTest(unittest.TestCase):
 
@@ -31,10 +26,11 @@ class LoginTest(unittest.TestCase):
         login_page.enter_password = "Ao3G8&KLItHbNX&0"
         login_page.click_login_button()
 
-        base_page = page.BasePage(self.driver)
-        # Very messy solution, definitely would clean up in a real test suite
+        home_page = page.HomePage(self.driver)
+        # Very messy solution, definitely would clean up in a real test suite however I could 
         sleep(2)
-        assert base_page.does_title_match("Home - Hudl"), "Title does not match"
+        assert home_page.check_team_name("QA Hire Project"), "Team name does not match"
+        assert home_page.does_title_match("Home - Hudl"), "Title does not match"
 
     def test_login_error(self):
 
